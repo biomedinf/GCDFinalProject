@@ -80,11 +80,17 @@ I extracted columns whose names/headings contain the strings "mean()", "std()",
 
 From the "activity_labels.txt" file, we know that the activities are coded 
 numerically as follows:
+
 1 WALKING
+
 2 WALKING_UPSTAIRS
+
 3 WALKING_DOWNSTAIRS
+
 4 SITTING
+
 5 STANDING
+
 6 LAYING
 
 I replaced the numerical values in the feature_subset column labeled "Activities" 
