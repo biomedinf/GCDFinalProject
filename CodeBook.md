@@ -65,16 +65,20 @@ fBodyAcc-meanFreq()-Z
 
 To do this, I read in the number and names of all features/measurements from 
 "features.txt" as shown in "run_analysis.R".  I also appended the values 
-"562, Activities" to the end of featureNames to represent the number and name 
-of the activity label. I then set the column names for the concatenated dataset 
-to be the values in column 2 of featureNames.
+"562, Activities" and "563, SubjectNumber" to the end of featureNames to 
+represent the number and name of the activity label and the number and coded name 
+of the person/subject whose activity data was measured. I then set the column 
+names for the concatenated dataset to be the values in column 2 of featureNames.
+I believe that the variable names contained in "features.txt" plus Activities and
+SubjectNumber for the two columns reresenting activity labels and the person/subject 
+who performed an activity are descriptive variable names for our feature extract.
 
 I extracted columns whose names/headings contain the strings "mean()", "std()", 
 "Activities" and "SubjectNumber" into a new dataset called feature_subset
 
 ## Step 3: Use descriptive activity names to name the activities in the data set
 
-From the "activity_labels.txt" file, we know that the activties are coded 
+From the "activity_labels.txt" file, we know that the activities are coded 
 numerically as follows:
 1 WALKING
 2 WALKING_UPSTAIRS
@@ -83,11 +87,36 @@ numerically as follows:
 5 STANDING
 6 LAYING
 
-I replaced the numerical values in the column labeled "Activities" with their 
-text description.
+I replaced the numerical values in the feature_subset column labeled "Activities" 
+with the corresponding text description, based on the activity coding described above.
 
 # Step 5) From the data set in step 4, create a second, independent tidy data 
 # set with the average of each variable for each activity and each subject.
 
 I did this using the plyr package's ddply function to average feature/
 measurement values by Activity and SubjectNumber
+
+Variable names for the final tidy data set are:
+[1] "Activities"                  "SubjectNumber"               "tBodyAcc-mean()-X"          
+ [4] "tBodyAcc-mean()-Y"           "tBodyAcc-mean()-Z"           "tBodyAcc-std()-X"           
+ [7] "tBodyAcc-std()-Y"            "tBodyAcc-std()-Z"            "tGravityAcc-mean()-X"       
+[10] "tGravityAcc-mean()-Y"        "tGravityAcc-mean()-Z"        "tGravityAcc-std()-X"        
+[13] "tGravityAcc-std()-Y"         "tGravityAcc-std()-Z"         "tBodyAccJerk-mean()-X"      
+[16] "tBodyAccJerk-mean()-Y"       "tBodyAccJerk-mean()-Z"       "tBodyAccJerk-std()-X"       
+[19] "tBodyAccJerk-std()-Y"        "tBodyAccJerk-std()-Z"        "tBodyGyro-mean()-X"         
+[22] "tBodyGyro-mean()-Y"          "tBodyGyro-mean()-Z"          "tBodyGyro-std()-X"          
+[25] "tBodyGyro-std()-Y"           "tBodyGyro-std()-Z"           "tBodyGyroJerk-mean()-X"     
+[28] "tBodyGyroJerk-mean()-Y"      "tBodyGyroJerk-mean()-Z"      "tBodyGyroJerk-std()-X"      
+[31] "tBodyGyroJerk-std()-Y"       "tBodyGyroJerk-std()-Z"       "tBodyAccMag-mean()"         
+[34] "tBodyAccMag-std()"           "tGravityAccMag-mean()"       "tGravityAccMag-std()"       
+[37] "tBodyAccJerkMag-mean()"      "tBodyAccJerkMag-std()"       "tBodyGyroMag-mean()"        
+[40] "tBodyGyroMag-std()"          "tBodyGyroJerkMag-mean()"     "tBodyGyroJerkMag-std()"     
+[43] "fBodyAcc-mean()-X"           "fBodyAcc-mean()-Y"           "fBodyAcc-mean()-Z"          
+[46] "fBodyAcc-std()-X"            "fBodyAcc-std()-Y"            "fBodyAcc-std()-Z"           
+[49] "fBodyAccJerk-mean()-X"       "fBodyAccJerk-mean()-Y"       "fBodyAccJerk-mean()-Z"      
+[52] "fBodyAccJerk-std()-X"        "fBodyAccJerk-std()-Y"        "fBodyAccJerk-std()-Z"       
+[55] "fBodyGyro-mean()-X"          "fBodyGyro-mean()-Y"          "fBodyGyro-mean()-Z"         
+[58] "fBodyGyro-std()-X"           "fBodyGyro-std()-Y"           "fBodyGyro-std()-Z"          
+[61] "fBodyAccMag-mean()"          "fBodyAccMag-std()"           "fBodyBodyAccJerkMag-mean()" 
+[64] "fBodyBodyAccJerkMag-std()"   "fBodyBodyGyroMag-mean()"     "fBodyBodyGyroMag-std()"     
+[67] "fBodyBodyGyroJerkMag-mean()" "fBodyBodyGyroJerkMag-std()" 
