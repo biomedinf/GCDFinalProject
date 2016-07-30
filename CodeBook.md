@@ -1,8 +1,8 @@
 ##  This is the code book for the Getting and Cleaning Data final project.
-# It describes the steps taken to produce a tidy data set from the 
-# "Human activity using smartphones" dataset contained in the UC Irvine 
-# Machine learning repository.  Steps described correspond to code in the 
-# R script, run_analysis.R
+## It describes the steps taken to produce a tidy data set from the 
+## "Human activity using smartphones" dataset contained in the UC Irvine 
+## Machine learning repository.  Steps described correspond to code in the 
+## R script, run_analysis.R
 
 First I downloaded the project zip file and unzipped it in the current working 
 directory per lines 4-6 of run_analysis.R
@@ -30,9 +30,9 @@ to produce a dataset that has 2,947 rows and 563 columns
 5) concatenating the resulting two datasets (dataset 1 and dataset2) to produce 
 a new dataset called concat_datasets that has 10,299 rows and 563 columns.
 
-## Steps 2 and 4) Extract only the measurements on the mean and standard deviation 
-## for each feature/measurement and label the dataset with descriptive 
-## variable names
+## Steps 2 and 4) Extract only the measurements on the mean and standard 
+## deviation for each feature/measurement and label the dataset with 
+## descriptive variable names
 
 I interpreted this to mean that data on the mean and standard deviation were to 
 be extracted only for the following variables described in "features_info.txt": 
@@ -90,8 +90,8 @@ numerically as follows:
 I replaced the numerical values in the feature_subset column labeled "Activities" 
 with the corresponding text description, based on the activity coding described above.
 
-# Step 5) From the data set in step 4, create a second, independent tidy data 
-# set with the average of each variable for each activity and each subject.
+## Step 5) From the data set in step 4, create a second, independent tidy data 
+## set with the average of each variable for each activity and each subject.
 
 I did this using the plyr package's ddply function to average feature/
 measurement values by Activity and SubjectNumber
