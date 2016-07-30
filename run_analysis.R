@@ -105,4 +105,4 @@ library(plyr)
 tidy_dataset <- ddply(feature_subset, .variables = .(Activities, SubjectNumber), numcolwise(mean))
 
 # Write out resulting dataset to a text file
-write.table(tidy_dataset, "variable_averages.txt")
+write.table(tidy_dataset, "variable_averages.txt", row.names=FALSE)
