@@ -94,7 +94,7 @@ with the corresponding text description, based on the activity coding described 
 ## set with the average of each variable for each activity and each subject.
 
 I did this using the plyr package's ddply function to average feature/
-measurement values by Activity and SubjectNumber
+measurement values by Activities and SubjectNumber
 
 The 68 variable names for the final tidy data set are listed below:
 
